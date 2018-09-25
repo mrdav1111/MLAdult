@@ -4,12 +4,24 @@
 // Write your JavaScript code.
 
 function getData() {
-    var data = $("#form").serialize();
-    $.getJSON("api/prediccion?" + data, function (data) {
-        if (data.esMayorA50) {
-            alert("Este perfil indica que gana mas de 50K");
-        } else {
-            alert("Este perfil indica que NO gana mas de 50k");
+    var form = $("#form");
+    var respuesta = $("#respuesta");
+    var data = form.serialize();
+    respuesta.hide();
+    //$.getJSON("api/prediccion?" + data, function (data) {
+    //    respuesta.show();
+    //    if (data.esMayorA50) {
+    //        alert("Este perfil indica que gana mas de 50K");
+    //    } else {
+    //        alert("Este perfil indica que NO gana mas de 50k");
+    //    }
+    //}).catch(e => {
+    //    alert(e);
+    //});
+
+    respuesta.load("/home/esmayora50?" + data, (response, status, xhr) => {
+        if (status === "success") {
+            respuesta.show();
         }
     });
 }

@@ -2,174 +2,175 @@
     ViewData["Title"] = "ML Ingresos (INTEC)";
     bool esMayor50k = false, showValue = false;
 }
+<div class="container">
+    <div class="row" style="margin-top:70px">
+        <form id="form" class="col-lg-4" action="/home/esMayorA50" method="get">
+            <fieldset>
+                <legend>
+                    Ingreso es mayor a 50K USD?
+                </legend>
+                <div>
+                    <label for="edad">Edad</label>
+                    <input type="number" name="edad" value="" />
+                </div>
+                <div>
+                    <label for="workClass">Tipo de empleo</label>
+                    @*workClass
+                        State-gov
+                        Self-emp-not-inc
+                        Private
+                        Federal-gov
+                        Local-gov
+                        ?
+                        Self-emp-inc
+                        Without-pay*@
 
-<form id="form">
-    <fieldset>
-        <legend>
-            Ingreso es mayor a 50K USD?
-        </legend>
-        <div>
-            <label for="edad">Edad</label>
-            <input type="number" name="edad" value="" />
-        </div>
-        <div>
-            <label for="workClass">Tipo de empleo</label>
-            @*workClass
-            State-gov
-            Self-emp-not-inc
-            Private
-            Federal-gov
-            Local-gov
-            ?
-            Self-emp-inc
-            Without-pay*@
+                    <select type="text" name="workClass" value="">
+                        <option value=""></option>
+                        <option value="State-gov">Gobierno estatal</option>
+                        <option value="Self-emp-not-inc">Freelancer</option>
+                        <option value="Private">Privado</option>
+                        <option value="Federal-gov">Gobierno federal</option>
+                        <option value="Self-emp-inc">Dependiente</option>
+                        <option value="Without-pay">Sin paga</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="educacion">Educacion</label>
+                    <select type="text" name="educacion">
+                        @*Bachelors
+                            HS-grad
+                            11th
+                            Masters
+                            9th
+                            Some-college
+                            Assoc-acdm
+                            Assoc-voc
+                            7th-8th
+                            Doctorate
+                            Prof-school
+                            5th-6th
+                            10th
+                            1st-4th
+                            Preschool
+                            12th*@
 
-            <select type="text" name="workClass" value="">
-                <option value=""></option>
-                <option value="State-gov">Gobierno estatal</option>
-                <option value="Self-emp-not-inc">Freelancer</option>
-                <option value="Private">Privado</option>
-                <option value="Federal-gov">Gobierno federal</option>
-                <option value="Self-emp-inc">Dependiente</option>
-                <option value="Without-pay">Sin paga</option>
-            </select>
-        </div>
-        <div>
-            <label for="educacion">Educacion</label>
-            <select type="text" name="educacion">
-                @*Bachelors
-                HS-grad
-                11th
-                Masters
-                9th
-                Some-college
-                Assoc-acdm
-                Assoc-voc
-                7th-8th
-                Doctorate
-                Prof-school
-                5th-6th
-                10th
-                1st-4th
-                Preschool
-                12th*@
+                        <option value="Bachelors">Bachelors</option>
+                        <option value="HS-grad">HS-grad</option>
+                        <option value="11th">11th</option>
+                        <option value="Masters">Masters</option>
+                        <option value="9th">9th</option>
+                        <option value="Some-college">Some-college</option>
+                        <option value="Assoc-acdm">Assoc-acdm</option>
+                        <option value="Assoc-voc">Assoc-voc</option>
+                        <option value="7th-8th">7th-8th</option>
+                        <option value="Doctorate">Doctorate</option>
+                        <option value="Prof-school">Prof-school</option>
+                        <option value="5th-6th">5th-6th</option>
+                        <option value="10th">10th</option>
+                        <option value="1st-4th">1st-4th</option>
+                        <option value="Preschool">Preschool</option>
+                        <option value="12th">12th</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="estadoCivil">Estado civil</label>
+                    <select type="text" name="estadoCivil">
+                        @*Never-married
+                            Married-civ-spouse
+                            Divorced
+                            Married-spouse-absent
+                            Separated
+                            Married-AF-spouse
+                            Widowed*@
 
-                <option value="Bachelors">Bachelors</option>
-                <option value="HS-grad">HS-grad</option>
-                <option value="11th">11th</option>
-                <option value="Masters">Masters</option>
-                <option value="9th">9th</option>
-                <option value="Some-college">Some-college</option>
-                <option value="Assoc-acdm">Assoc-acdm</option>
-                <option value="Assoc-voc">Assoc-voc</option>
-                <option value="7th-8th">7th-8th</option>
-                <option value="Doctorate">Doctorate</option>
-                <option value="Prof-school">Prof-school</option>
-                <option value="5th-6th">5th-6th</option>
-                <option value="10th">10th</option>
-                <option value="1st-4th">1st-4th</option>
-                <option value="Preschool">Preschool</option>
-                <option value="12th">12th</option>
-            </select>
-        </div>
-        <div>
-            <label for="estadoCivil">Estado civil</label>
-            <select type="text" name="estadoCivil">
-                @*Never-married
-                Married-civ-spouse
-                Divorced
-                Married-spouse-absent
-                Separated
-                Married-AF-spouse
-                Widowed*@
+                        <option value="Never-married">Never-married</option>
+                        <option value="Married-civ-spouse">Married-civ-spouse</option>
+                        <option value="Divorced">Divorced</option>
+                        <option value="Married-spouse-absent">Married-spouse-absent</option>
+                        <option value="Separated">Separated</option>
+                        <option value="Married-AF-spouse">Married-AF-spouse</option>
+                        <option value="Widowed">Widowed</option>
 
-                <option value="Never-married">Never-married</option>
-                <option value="Married-civ-spouse">Married-civ-spouse</option>
-                <option value="Divorced">Divorced</option>
-                <option value="Married-spouse-absent">Married-spouse-absent</option>
-                <option value="Separated">Separated</option>
-                <option value="Married-AF-spouse">Married-AF-spouse</option>
-                <option value="Widowed">Widowed</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="ocupacion">Ocupacion</label>
+                    <select type="text" name="ocupacion">
+                        @*Adm-clerical
+                            Exec-managerial
+                            Handlers-cleaners
+                            Prof-specialty
+                            Other-service
+                            Sales
+                            Craft-repair
+                            Transport-moving
+                            Farming-fishing
+                            Machine-op-inspct
+                            d
+                            Tech-support
+                            ?
+                            Protective-serv
+                            Armed-Forces
+                            Priv-house-serv*@
 
-            </select>
-        </div>
-        <div>
-            <label for="ocupacion">Ocupacion</label>
-            <select type="text" name="ocupacion">
-                @*Adm-clerical
-                Exec-managerial
-                Handlers-cleaners
-                Prof-specialty
-                Other-service
-                Sales
-                Craft-repair
-                Transport-moving
-                Farming-fishing
-                Machine-op-inspct
-                d
-                Tech-support
-                ?
-                Protective-serv
-                Armed-Forces
-                Priv-house-serv*@
+                        <option value=""></option>
+                        <option value="Adm-clerical">Adm-clerical</option>
+                        <option value="Exec-managerial">Exec-managerial</option>
+                        <option value="Handlers-cleaners">Handlers-cleaners</option>
+                        <option value="Prof-specialty">Prof-specialty</option>
+                        <option value="Armed-Forces">Armed-Forces</option>
+                        <option value="Transport-moving">Transport-moving</option>
+                        <option value="Tech-support">Tech-support</option>
+                        <option value="Other-service">Other-service</option>
 
-                <option value=""></option>
-                <option value="Adm-clerical">Adm-clerical</option>
-                <option value="Exec-managerial">Exec-managerial</option>
-                <option value="Handlers-cleaners">Handlers-cleaners</option>
-                <option value="Prof-specialty">Prof-specialty</option>
-                <option value="Armed-Forces">Armed-Forces</option>
-                <option value="Transport-moving">Transport-moving</option>
-                <option value="Tech-support">Tech-support</option>
-                <option value="Other-service">Other-service</option>
-              
 
-            </select>
-        </div>
-        <div>
-            <label for="relacion">Relacion</label>
-            <select type="text" name="relacion">
-                @{ var relaciones = "Not-in-family Husband Wife Own-child Unmarried Other-relative".Split();}
-                @foreach (var rel in relaciones)
-                {
-                    <option value="@rel">@rel</option>
-                }
-            </select>
-        </div>
-        <div>
-            <label for="raza">Raza</label>
-            @{ var razas = @"White
+                    </select>
+                </div>
+                <div>
+                    <label for="relacion">Relacion</label>
+                    <select type="text" name="relacion">
+                        @{ var relaciones = "Not-in-family Husband Wife Own-child Unmarried Other-relative".Split();}
+                        @foreach (var rel in relaciones)
+                        {
+                            <option value="@rel">@rel</option>
+                        }
+                    </select>
+                </div>
+                <div>
+                    <label for="raza">Raza</label>
+                    @{ var razas = @"White
 Black
 Asian-Pac-Islander
 Amer-Indian-Eskimo
 Other".Split('\n');}
-            <select type="text" name="raza">
-                @foreach(var item in razas)
-                {
-                    <option value="@item">@item</option>
-                }
-                </select>
-            </div>
-        <div>
-            <label for="sexo">Sexo</label>
-            <input type="radio" name="sexo" value="Male" /> Masculino
-            <input type="radio" name="sexo" value="Female" /> Femenino
+                    <select type="text" name="raza">
+                        @foreach (var item in razas)
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    </select>
+                </div>
+                <div>
+                    <label for="sexo">Sexo</label>
+                    <input type="radio" name="sexo" value="Male" /> Masculino
+                    <input type="radio" name="sexo" value="Female" /> Femenino
 
-        </div>
-        <div>
-            <label for="gananciaCapital">Ganancia Capital</label>
-            <input type="number" name="gananciaCapital" value="" />
-        </div>
-        <div>
-            <label for="perdidaCapital">Perdida Capital</label>
-            <input type="number" name="perdidaCapital" value="" />
-        </div>
-        <div>
-            <label for="horasPorSemana">Horas por semana</label>
-            <input type="number" name="horasPorSemana" value="" />
-        </div>
-        <div>
-            @{ var paises = @"United-States
+                </div>
+                <div>
+                    <label for="gananciaCapital">Ganancia Capital</label>
+                    <input type="number" name="gananciaCapital" value="" />
+                </div>
+                <div>
+                    <label for="perdidaCapital">Perdida Capital</label>
+                    <input type="number" name="perdidaCapital" value="" />
+                </div>
+                <div>
+                    <label for="horasPorSemana">Horas por semana</label>
+                    <input type="number" name="horasPorSemana" value="" />
+                </div>
+                <div>
+                    @{ var paises = @"United-States
 Cuba
 Jamaica
 India
@@ -208,21 +209,28 @@ Nicaragua
 Vietnam
 Hong
 Ireland".Split('\n');}
-            <label for="paisNativo">Pais nativo</label>
-            <select name="paisNativo">
-                @foreach(var pais in paises)
-                {
-                    <option value="@pais">@pais</option>
-                }
-            </select>
-        </div>
-        <div>
-            <label>&nbsp;</label>
-            <button value="Predecir" class="submit" type="button" onclick="getData()">Predecir</button>
-        </div>
+                    <label for="paisNativo">Pais nativo</label>
+                    <select name="paisNativo">
+                        @foreach (var pais in paises)
+                        {
+                            <option value="@pais">@pais</option>
+                        }
+                    </select>
+                </div>
+                <div>
+                    <label>&nbsp;</label>
+                    <button value="Predecir" type="button" onclick="getData()" class="submit">Predecir</button>
+                </div>
 
-    </fieldset>
-</form>
+            </fieldset>
+        </form>
+
+        <div id="respuesta" class="col-lg-8"></div>
+
+    </div>
+
+</div>
+
 
 
 

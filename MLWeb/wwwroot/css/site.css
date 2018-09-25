@@ -23,6 +23,13 @@ body {
     width: 100%;
 }
 
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    margin-top: 25%;
+}
+
 /* QR code generator */
 #qrCode {
     margin: 15px;
